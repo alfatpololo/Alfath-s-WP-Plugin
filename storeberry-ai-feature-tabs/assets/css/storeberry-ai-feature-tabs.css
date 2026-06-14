@@ -1,0 +1,244 @@
+/* Storeberry AI Feature Tabs – mobile-first layout */
+
+.saft-section {
+	--saft-active-bg-fallback: transparent;
+	--saft-active-color-fallback: inherit;
+	--saft-inactive-bg-fallback: transparent;
+	--saft-inactive-color-fallback: inherit;
+	--saft-nav-width: 42%;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	overflow-x: clip;
+}
+
+.saft-section *,
+.saft-section *::before,
+.saft-section *::after {
+	box-sizing: border-box;
+}
+
+.saft-inner {
+	width: 100%;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.saft-header {
+	margin: 0;
+}
+
+.saft-heading {
+	margin: 0;
+	padding: 0;
+}
+
+.saft-subtitle {
+	margin: 0;
+	padding: 0;
+}
+
+/* Mobile-first: stacked layout */
+.saft-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	row-gap: 20px;
+	align-items: start;
+	width: 100%;
+	max-width: 100%;
+}
+
+.saft-nav {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	width: 100%;
+	max-width: 100%;
+	grid-column: 1 / -1;
+}
+
+.saft-panels {
+	min-width: 0;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+	grid-column: 1 / -1;
+	justify-self: stretch;
+}
+
+.saft-tab {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	text-align: left;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+	background: var(--saft-tab-inactive-bg, var(--saft-inactive-bg-fallback));
+	color: var(--saft-tab-inactive-color, var(--saft-inactive-color-fallback));
+	transition: opacity 0.25s ease;
+	font-family: inherit;
+	-webkit-tap-highlight-color: transparent;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: break-word;
+	hyphens: auto;
+}
+
+.saft-tab:not(.is-active):hover,
+.saft-tab:not(.is-active):focus,
+.saft-tab:not(.is-active):active {
+	background: var(--saft-tab-inactive-bg, var(--saft-inactive-bg-fallback));
+	color: var(--saft-tab-inactive-color, var(--saft-inactive-color-fallback));
+	border: none;
+	box-shadow: none;
+}
+
+.saft-tab:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.saft-tab.is-active {
+	background: var(--saft-tab-active-bg, var(--saft-active-bg-fallback));
+	color: var(--saft-tab-active-color, var(--saft-active-color-fallback));
+}
+
+.saft-tab.is-active:hover,
+.saft-tab.is-active:focus,
+.saft-tab.is-active:active {
+	background: var(--saft-tab-active-bg, var(--saft-active-bg-fallback));
+	color: var(--saft-tab-active-color, var(--saft-active-color-fallback));
+	border: none;
+	box-shadow: none;
+}
+
+.saft-tab-number,
+.saft-tab-title,
+.saft-tab-desc {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+.saft-tab-desc {
+	margin: 0;
+}
+
+.saft-heading,
+.saft-subtitle {
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+.saft-panel {
+	display: none;
+	opacity: 0;
+	transition: opacity 0.35s ease;
+	width: 100%;
+	max-width: 100%;
+}
+
+.saft-panel.is-active {
+	display: block;
+	opacity: 1;
+}
+
+.saft-panel.is-fading-out {
+	display: block;
+	opacity: 0;
+}
+
+.saft-panel.is-fading-in {
+	display: block;
+	opacity: 1;
+}
+
+.saft-content-image {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+.saft-content-wysiwyg {
+	width: 100%;
+	max-width: 100%;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.saft-content-wysiwyg img {
+	max-width: 100%;
+	height: auto;
+}
+
+.saft-content-template {
+	width: 100%;
+	max-width: 100%;
+}
+
+.saft-content-template .elementor-section,
+.saft-content-template .e-con {
+	max-width: 100%;
+}
+
+/* Desktop: side-by-side (default) */
+@media (min-width: 1025px) {
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-layout {
+		grid-template-columns: minmax(0, var(--saft-nav-width)) minmax(0, 1fr);
+		row-gap: 0;
+	}
+
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-nav,
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-panels {
+		grid-column: auto;
+	}
+
+	.elementor-widget-storeberry_ai_feature_tabs.saft-layout-stack .saft-section .saft-layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* Force stack on tablet & mobile — beats Elementor inline desktop CSS */
+@media (max-width: 1024px) {
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-layout {
+		grid-template-columns: minmax(0, 1fr) !important;
+		row-gap: 24px !important;
+		column-gap: 0 !important;
+	}
+
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-nav,
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-panels {
+		width: 100% !important;
+		max-width: 100% !important;
+		justify-self: stretch !important;
+		grid-column: 1 / -1 !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-layout {
+		row-gap: 16px !important;
+	}
+
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-heading {
+		line-height: 1.3;
+	}
+
+	.elementor-widget-storeberry_ai_feature_tabs .saft-section .saft-subtitle {
+		line-height: 1.5;
+	}
+}

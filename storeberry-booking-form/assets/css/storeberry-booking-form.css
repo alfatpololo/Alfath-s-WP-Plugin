@@ -1,0 +1,139 @@
+/* Storeberry Booking Form – scoped styles */
+
+.sb-booking-form-wrap {
+	--sb-booking-country-width: 130px;
+	--sb-booking-phone-gap: 14px;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+.sb-booking-form-wrap *,
+.sb-booking-form-wrap *::before,
+.sb-booking-form-wrap *::after {
+	box-sizing: border-box;
+}
+
+.sb-booking-form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.sb-booking-form__field {
+	width: 100%;
+	max-width: 100%;
+}
+
+.sb-booking-form__input,
+.sb-booking-form__select {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: 1.4;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: none;
+	box-shadow: none;
+	outline: none;
+}
+
+.sb-booking-form__select {
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 12px;
+	padding-right: 36px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+}
+
+.sb-booking-form__phone-row {
+	display: grid;
+	grid-template-columns: var(--sb-booking-country-width) 1fr;
+	column-gap: var(--sb-booking-phone-gap);
+	width: 100%;
+	max-width: 100%;
+	align-items: stretch;
+}
+
+.sb-booking-form__country-field,
+.sb-booking-form__phone-field {
+	min-width: 0;
+}
+
+.sb-booking-form__submit {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	max-width: 100%;
+	margin: 0;
+	border: none;
+	cursor: pointer;
+	font-family: inherit;
+	text-decoration: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+	transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.sb-booking-form__submit:focus {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.sb-booking-form__submit:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.sb-booking-form__submit:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.sb-booking-form__submit:disabled {
+	opacity: 0.65;
+	cursor: not-allowed;
+}
+
+.sb-booking-form--btn-shadow .sb-booking-form__submit {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.sb-booking-form__message {
+	display: none;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.sb-booking-form__message.is-visible {
+	display: block;
+}
+
+.sb-booking-form__message.is-success {
+	color: inherit;
+}
+
+.sb-booking-form__message.is-error {
+	color: inherit;
+}
+
+@media (max-width: 767px) {
+	.sb-booking-form__phone-row {
+		grid-template-columns: 105px 1fr;
+	}
+
+	.sb-booking-form--btn-full-mobile .sb-booking-form__submit {
+		width: 100%;
+	}
+}

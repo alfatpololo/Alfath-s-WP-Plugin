@@ -1,0 +1,92 @@
+/*
+ * Storeberry Logo Marquee — Frontend CSS
+ * Version: 1.0.6
+ * Author: Muhammad Alfath Aditya
+ */
+
+/* ── Section wrapper ──────────────────────────────────────── */
+.slm-section {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #F7F7F7;
+	padding: 40px 0;
+}
+
+/* ── Viewport: clips the scrolling track ─────────────────── */
+.slm-viewport {
+	width: 100%;
+	overflow: hidden;
+}
+
+/* ── Scrolling track ──────────────────────────────────────── */
+.slm-track {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	width: max-content !important; /* CRITICAL: Must be max-content for translate -50% to work */
+	gap: 64px; /* default gap */
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-duration: 28s;
+	will-change: transform;
+}
+
+/* ── Inner content container ──────────────────────────────── */
+.slm-content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	flex-shrink: 0;
+	gap: 64px; /* default gap */
+}
+
+.slm-track.slm-dir-left  { animation-name: slm-marquee-left;  }
+.slm-track.slm-dir-right { animation-name: slm-marquee-right; }
+
+/* Pause on hover */
+.slm-viewport:hover .slm-track.slm-pause {
+	animation-play-state: paused !important;
+}
+
+/* ── Logo items ───────────────────────────────────────────── */
+.slm-item {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.slm-item a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	line-height: 0;
+}
+
+.slm-logo-img {
+	display: block;
+	width: 120px;       /* default; overridden by Elementor responsive selectors */
+	height: auto;
+	object-fit: contain;
+	opacity: 1;
+	filter: none;
+}
+
+.slm-item a:hover .slm-logo-img {
+	opacity: 0.75;
+	transition: opacity 0.2s ease;
+}
+
+/* ── Responsive fallbacks (Elementor selectors override these) */
+@media (max-width: 1024px) {
+	.slm-track, .slm-content { gap: 40px; }
+	.slm-logo-img { width: 90px; }
+}
+
+@media (max-width: 767px) {
+	.slm-track, .slm-content { gap: 28px; }
+	.slm-logo-img { width: 72px; }
+}

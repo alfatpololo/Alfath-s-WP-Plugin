@@ -1,0 +1,9 @@
+.alfath-migration-wrap { max-width: 800px; }
+.alfath-tab-content { display: none; margin-top: 20px; }
+.alfath-tab-content.active { display: block; }
+.alfath-card { background: #fff; padding: 20px; border: 1px solid #ccd0d4; box-shadow: 0 1px 1px rgba(0,0,0,.04); }
+.mt-10 { margin-top: 10px; display: inline-block; }
+.hidden { display: none !important; }
+.alfath-progress-wrapper { background: #f0f0f1; border: 1px solid #c3c4c7; padding: 10px; }
+.alfath-progress-bar { width: 100%; background: #ddd; height: 20px; border-radius: 3px; overflow: hidden; }
+.alfath-progress { height: 100%; background: #2271b1; width: 0%; transition: width 0.3s ease; }

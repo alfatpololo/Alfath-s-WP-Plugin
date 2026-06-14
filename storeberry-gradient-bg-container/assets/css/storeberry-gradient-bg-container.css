@@ -1,0 +1,152 @@
+/* Storeberry Gradient – native Container (recommended) */
+
+.e-con.sb-gradient-enabled-yes {
+	--sb-grad-color-1: #eee05f;
+	--sb-grad-color-2: #766cd2;
+	--sb-grad-color-3: #fb636e;
+	--sb-grad-angle: 90deg;
+	--sb-grad-opacity: 0.2;
+	--sb-grad-blur: 80px;
+	--sb-grad-scale: 1.15;
+	--sb-grad-inset: 80px;
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.e-con.sb-gradient-enabled-yes::before {
+	content: '';
+	position: absolute;
+	inset: calc(var(--sb-grad-inset) * -1);
+	background: linear-gradient(
+		var(--sb-grad-angle),
+		var(--sb-grad-color-1) 0%,
+		var(--sb-grad-color-2) 50%,
+		var(--sb-grad-color-3) 100%
+	);
+	filter: blur(var(--sb-grad-blur));
+	opacity: var(--sb-grad-opacity);
+	transform: scale(var(--sb-grad-scale));
+	transform-origin: center center;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.e-con.sb-gradient-enabled-yes > .e-con-inner {
+	position: relative;
+	z-index: 1;
+}
+
+/* Storeberry Gradient – widget wrapper */
+
+.sb-gradient-bg-wrapper {
+	--sb-grad-color-1: #eee05f;
+	--sb-grad-color-2: #766cd2;
+	--sb-grad-color-3: #fb636e;
+	--sb-grad-angle: 90deg;
+	--sb-grad-opacity: 0.2;
+	--sb-grad-blur: 80px;
+	--sb-grad-scale: 1.15;
+	--sb-grad-inset: 80px;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.sb-gradient-bg-wrapper *,
+.sb-gradient-bg-wrapper *::before,
+.sb-gradient-bg-wrapper *::after {
+	box-sizing: border-box;
+}
+
+.sb-gradient-bg-wrapper--overflow-visible {
+	overflow: visible;
+}
+
+.sb-gradient-bg-layer {
+	position: absolute;
+	inset: calc(var(--sb-grad-inset) * -1);
+	background: linear-gradient(
+		var(--sb-grad-angle),
+		var(--sb-grad-color-1) 0%,
+		var(--sb-grad-color-2) 50%,
+		var(--sb-grad-color-3) 100%
+	);
+	filter: blur(var(--sb-grad-blur));
+	opacity: var(--sb-grad-opacity);
+	transform: scale(var(--sb-grad-scale));
+	transform-origin: center center;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.sb-gradient-bg-content {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 100%;
+}
+
+.sb-gradient-bg-template {
+	width: 100%;
+	max-width: 100%;
+}
+
+.sb-gradient-bg-template .elementor-section,
+.sb-gradient-bg-template .e-con {
+	max-width: 100%;
+}
+
+.sb-gradient-bg-heading,
+.sb-gradient-bg-desc {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+.sb-gradient-bg-image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.sb-gradient-bg-custom {
+	width: 100%;
+	max-width: 100%;
+}
+
+.sb-gradient-bg-custom img {
+	max-width: 100%;
+	height: auto;
+}
+
+.sb-gradient-bg-content--align-left {
+	align-items: flex-start;
+	text-align: left;
+}
+
+.sb-gradient-bg-content--align-center {
+	align-items: center;
+	text-align: center;
+}
+
+.sb-gradient-bg-content--align-right {
+	align-items: flex-end;
+	text-align: right;
+}
+
+@media (max-width: 767px) {
+	.e-con.sb-gradient-enabled-yes::before,
+	.sb-gradient-bg-layer {
+		inset: calc(var(--sb-grad-inset) * -0.75);
+	}
+}

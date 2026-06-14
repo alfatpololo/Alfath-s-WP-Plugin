@@ -1,0 +1,94 @@
+/* Storeberry Feature Cards – scoped frontend styles */
+
+.sb-feature-cards {
+	--sb-fc-icon-size: 16px;
+	--sb-fc-icon-box-size: 28px;
+	--sb-fc-icon-gap: 16px;
+	--sb-fc-desc-indent: 0px;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+}
+
+.sb-feature-cards *,
+.sb-feature-cards *::before,
+.sb-feature-cards *::after {
+	box-sizing: border-box;
+}
+
+.sb-feature-cards__inner {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sb-feature-cards__card {
+	width: 100%;
+	max-width: 100%;
+}
+
+.sb-feature-cards__card-header {
+	display: flex;
+	align-items: var(--sb-fc-icon-valign, flex-start);
+	gap: var(--sb-fc-icon-gap);
+	width: 100%;
+}
+
+.sb-feature-cards__icon-wrap {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 var(--sb-fc-icon-box-size);
+	width: var(--sb-fc-icon-box-size);
+	height: var(--sb-fc-icon-box-size);
+	border-radius: 50%;
+	line-height: 1;
+}
+
+.sb-feature-cards__icon-wrap i,
+.sb-feature-cards__icon-wrap svg {
+	display: block;
+	width: var(--sb-fc-icon-size);
+	height: var(--sb-fc-icon-size);
+	font-size: var(--sb-fc-icon-size);
+	line-height: 1;
+}
+
+.sb-feature-cards__icon-wrap svg {
+	fill: currentColor;
+}
+
+.sb-feature-cards__title {
+	margin: 0;
+	padding: 0;
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+.sb-feature-cards__desc {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+	padding-left: calc(var(--sb-fc-icon-box-size) + var(--sb-fc-icon-gap) + var(--sb-fc-desc-indent));
+	overflow-wrap: anywhere;
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+@media (max-width: 767px) {
+	.sb-feature-cards__card-header {
+		align-items: flex-start;
+	}
+
+	.sb-feature-cards__title,
+	.sb-feature-cards__desc {
+		line-height: 1.6;
+	}
+}
